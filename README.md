@@ -1,4 +1,4 @@
-![image-prompt banner](assets/banner.png)
+![image-prompt banner](assets/banner.webp)
 
 # Image Prompt Skills for Claude Code
 
