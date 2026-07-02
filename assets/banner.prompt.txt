@@ -1,0 +1,30 @@
+Wide GitHub README hero banner for a developer tool called "image-prompt", a Claude Code skill that turns a one-line idea into a production-grade image-generation prompt. Modern creative dev-tool brand aesthetic: a terminal-meets-design-studio look. Intended use: repository hero banner.
+
+BACKGROUND / CANVAS:
+Horizontal 3:1 banner. Deep ink-to-charcoal horizontal gradient #0A0B10 -> #12131A with a subtle dot-grid texture, faint film grain, and a soft warm spotlight glow behind the left-side wordmark.
+
+SUBJECT:
+Right two-thirds: a fanned collage of six small poster "cards" overlapping at playful tilts, scattered like freshly printed prints, each a tiny distinct style nodding to a different archetype - a bold streetwear sticker poster, a cream editorial magazine spread, a punk halftone silkscreen, a glossy Y2K chrome UI panel, a cinematic game-screenshot with a HUD sliver, and a minimalist product ad. Each card has a thin white border and a soft drop shadow. A thin glowing line flows from the left toward the cards, suggesting idea -> posters.
+
+LAYOUT / COMPOSITION:
+- Left zone (~35%): a small dark terminal chip near the top, below it the massive wordmark, below that a one-line tagline.
+- Right zone (~65%): the fanned poster-card collage.
+- A glowing connector line arcs from the terminal chip into the collage.
+
+TYPOGRAPHY & TEXT:
+- Terminal chip: monospace, mint-green #7CF5B0 on a dark rounded chip, reads "> throw an idea".
+- Wordmark: massive bold lowercase modern grotesk (Aeonik Bold / Sohne Bold), off-white #F5F3EC, tight tracking, reads "image-prompt", with a subtle magenta-to-cyan gradient edge highlight.
+- Tagline: medium sans, muted grey #9AA0AC, reads "one line in, a gold-quality prompt out".
+- Poster cards carry tiny generic placeholder lettering (illegible mock text is fine).
+
+PALETTE:
+ink #0A0B10 -> charcoal #12131A background, off-white #F5F3EC, electric magenta #FF3D8E, neon cyan #22E6FF, marigold #F4C542, warm coral #FF6B35 (card accents echo the archetype palettes).
+
+MOOD:
+modern creative dev-tool, vivid, confident, studio-meets-terminal.
+
+FINISH:
+subtle dot-grid, film grain, soft glow and bloom behind the wordmark, crisp card drop-shadows. Dribbble / Behance-quality product banner, 4k wide.
+
+CONSTRAINTS:
+Original design, no logos or trademarks, no watermark. The poster cards are generic mock layouts, not resembling any real brand. Render each text string once, exactly as written.
