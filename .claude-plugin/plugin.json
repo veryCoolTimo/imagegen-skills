@@ -1,0 +1,21 @@
+{
+  "name": "imagegen-skills",
+  "description": "Turn a one-line idea into a production-grade, copy-paste-ready AI image prompt for posters, landing/UI mockups, ads, editorial, game art, and logos. Optimized for gpt-image-2.",
+  "version": "1.0.0",
+  "author": {
+    "name": "veryCoolTimo",
+    "email": "tima.bulaev@gmail.com"
+  },
+  "homepage": "https://github.com/veryCoolTimo/imagegen-skills",
+  "repository": "https://github.com/veryCoolTimo/imagegen-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "image-generation",
+    "image-prompt",
+    "gpt-image",
+    "poster-design",
+    "prompt-engineering",
+    "generative-ai"
+  ]
+}

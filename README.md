@@ -17,7 +17,14 @@ No prompt-engineering required.
 
 ## Installation
 
-**Claude Code (CLI or IDE)**
+**Claude Code — plugin marketplace (recommended)**
+
+```
+/plugin marketplace add veryCoolTimo/imagegen-skills
+/plugin install imagegen-skills@imagegen
+```
+
+**Claude Code — manual (clone + symlink)**
 
 Clone the repo and symlink the skill into your personal skills directory:
 

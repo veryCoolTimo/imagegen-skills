@@ -1,0 +1,20 @@
+{
+  "name": "imagegen",
+  "description": "Marketplace for imagegen-skills: gold-quality AI image-prompt generation for Claude Code",
+  "owner": {
+    "name": "veryCoolTimo",
+    "email": "tima.bulaev@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "imagegen-skills",
+      "description": "Turn a one-line idea into a production-grade, copy-paste-ready AI image prompt for posters, landing/UI mockups, ads, editorial, game art, and logos. Optimized for gpt-image-2.",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "veryCoolTimo",
+        "email": "tima.bulaev@gmail.com"
+      }
+    }
+  ]
+}
