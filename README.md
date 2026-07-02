@@ -7,6 +7,7 @@
 ![Model](https://img.shields.io/badge/model-gpt--image--2-10A37F)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![GitHub stars](https://img.shields.io/github/stars/veryCoolTimo/imagegen-skills?style=flat)
 
 A skill that turns a one-line idea into a gold-quality image-generation prompt. You supply the idea, the skill writes the whole prompt.
 
