@@ -88,7 +88,9 @@ the machine. Create the directory on first save. Each user grows their own set.
   style layer (never subject, copy, or specific zones). Capture the **distinctive signatures
   that make the style non-generic** — palette + fonts alone flatten the output. Nail:
   **MEDIUM/technique** (watercolor vs flat vector vs risograph vs 3D render vs photo), **how
-  fills are painted** (flat vs mottled/grainy), **LINE quality** (loose/varied vs clean/even),
+  and WHERE fills are painted** (flat vs mottled/grainy; applied globally vs confined to
+  specific accent elements — apply a texture where the reference uses it, not everywhere),
+  **LINE quality** (loose/varied vs clean/even),
   **COMPOSITION rhythm** (sparse/airy vs dense; organic vs grid; negative space), and an
   explicit **AVOID** list of anti-patterns that would drift toward a generic look. When
   deriving from reference images, name the 2-3 traits that separate this style from a generic
