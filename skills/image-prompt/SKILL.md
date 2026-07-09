@@ -93,7 +93,11 @@ the machine. Create the directory on first save. Each user grows their own set.
   explicit **AVOID** list of anti-patterns that would drift toward a generic look. When
   deriving from reference images, name the 2-3 traits that separate this style from a generic
   version and encode them; if refs are available, sanity-check the intended output against
-  them. Write the file (format below), then confirm what was captured.
+  them. A big AI-tell is the model's own default "polished illustration" look — soft digital
+  watercolor gradients, airbrushed bleed, over-clean vector lines, glossy 3D; name these in
+  AVOID and prefer flat color + real (grain/halftone/print) texture + restraint. Do NOT
+  over-stack texture adjectives, which can trigger that exact generic look. Write the file
+  (format below), then confirm what was captured.
 - **Use** — on "in the <name> style" / "use preset <name>": read the preset, build the
   CONTENT from the new idea as usual, but take background/texture, palette, fonts, motifs,
   mood, and finish from the preset (overriding the archetype's style defaults). Keep the
