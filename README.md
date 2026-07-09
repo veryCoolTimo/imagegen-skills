@@ -140,6 +140,16 @@ A preset captures the **style layer only** (background, palette, fonts, motifs, 
 
 Manage them with "list my presets", "update <name>", "delete <name>".
 
+**Share a preset with anyone** — no hosting, no accounts. Export it to a portable code:
+
+> export preset neon-noir
+
+You get an `imgpreset:v1:…` string. Whoever pastes it back gets the exact preset:
+
+> import preset imgpreset:v1:H4sIAA…
+
+The code is self-contained (gzip + base64 of the preset), so styles travel as plain text.
+
 ## Project structure
 
 ```

@@ -93,6 +93,24 @@ FINISH: <post-processing; what to avoid>
 CONSTRAINTS: <IP-safety etc.>
 ```
 
+### Sharing presets (preset codes)
+
+Presets are portable: export one to a self-contained **code** anyone can import — no hosting,
+no accounts. Format: `imgpreset:v1:<b64>` where `<b64>` is base64 of gzip of the preset file's
+UTF-8 bytes (verified round-trip).
+
+- **Export** — on "export preset <name>": encode `~/.claude/image-prompt/presets/<name>.md`
+  and print the code in its own copy block. Reference command (P = the preset path):
+  `python3 -c "import gzip,base64;print('imgpreset:v1:'+base64.b64encode(gzip.compress(open('$P','rb').read())).decode())"`
+  Any equivalent gzip+base64 tool works; keep the `imgpreset:v1:` prefix.
+- **Import** — on "import preset `imgpreset:v1:…`": decode the payload after the prefix, gunzip
+  it, read `name:` from the decoded frontmatter, and write `presets/<name>.md`. Confirm what
+  landed; if a preset with that name already exists, ask before overwriting. Reference command
+  (OUT = target path, C = the code):
+  `python3 -c "import sys,gzip,base64;open('$OUT','wb').write(gzip.decompress(base64.b64decode('$C'.split(':',2)[2])))"`
+- **Validate** after import: the decoded file must start with `---` frontmatter and contain a
+  `name:` line. Reject anything that doesn't decode to a valid preset.
+
 ### Reference-library presets
 
 A preset can also be a **reference library** (`type: reference-library` in its frontmatter):
