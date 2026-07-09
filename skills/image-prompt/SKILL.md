@@ -93,6 +93,17 @@ FINISH: <post-processing; what to avoid>
 CONSTRAINTS: <IP-safety etc.>
 ```
 
+### Reference-library presets
+
+A preset can also be a **reference library** (`type: reference-library` in its frontmatter):
+instead of one style it holds many distilled reference cards plus a pointer to source images
+(e.g. `~/.claude/image-prompt/references/<name>/`). When the user invokes it ("use my ui
+references", "по моей ui-базе"): read the cards, **propose the 2-3 that best fit the project**
+(the user can swap or add — offer, don't lock), then compose the mockup from those, favouring
+what fits the project over any single house style. To ingest new screenshots dropped into the
+source folder: view each image, append a card (template inside the library file), and refresh
+the aggregated-patterns summary. Libraries are user-local and private — never committed.
+
 ## Output format
 
 Put the prompt in **its own fenced code block** so the user can copy it in one action.
