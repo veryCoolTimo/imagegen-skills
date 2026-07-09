@@ -57,11 +57,26 @@ correct with a single sentence ("make it 9:16", "darker palette", "brand is NOVA
 
 ## Model handling
 
-- Default target model: **gpt-image-2**. Adapter: `references/models/gpt-image-2.md`.
-- If the user says a model with no file yet (universal / Midjourney / Gemini / Ideogram),
-  note "no dedicated adapter yet, using rich NL style" and build a model-agnostic rich
-  prompt (drop the gpt-image-2 CONSTRAINTS/size wording, add flags like `--ar/--v` only for
-  Midjourney).
+Default target: **gpt-image-2**. When the user names a model, load its adapter and follow it —
+the 9-block content stays the same; only the rendering (output shape, params/flags, size/ratio)
+changes.
+
+| Model (match loosely, incl. RU) | Adapter |
+|---|---|
+| gpt-image-2 (default), gpt-image-1, gpt-image-1.5, "openai" | `references/models/gpt-image-2.md` |
+| nano banana pro, gemini 3 pro image, "gemini", "нанобанана" | `references/models/gemini.md` |
+| midjourney, "mj", "миджорни" | `references/models/midjourney.md` |
+| flux, flux.2 | `references/models/flux.md` |
+| ideogram | `references/models/ideogram.md` |
+| recraft | `references/models/recraft.md` |
+| reve | `references/models/reve.md` |
+| universal / unknown tool | `references/models/universal.md` |
+
+If the user names a model with no adapter yet, use `universal` and say so. **Pick by fit** when
+the user is unsure: text-heavy / infographic / factual → **gemini (Nano Banana Pro)** or
+gpt-image-2; brand / typography / vector / logo → **recraft**; pure aesthetics → **midjourney**;
+open-weight / local / hex control → **flux**; strong prompt-adherence + layout editing →
+**reve**; unknown tool or "just a great prompt" → **universal**.
 
 ## Style presets (user-local, private)
 

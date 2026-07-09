@@ -8,6 +8,22 @@ assumptions line so the user can plug them into whatever tool they use.
 
 ---
 
+## OpenAI gpt-image family (variants)
+
+`gpt-image-2` is the default. Same prompting approach applies to the whole family; they differ
+in sizes, `input_fidelity`, and cost:
+
+| Model | quality | input_fidelity | resolutions | when to use |
+|---|---|---|---|---|
+| **gpt-image-2** | low/med/high | n/a (already high-fidelity) | any resolution within the size constraints below | **default** — best quality, editing, text, photoreal |
+| gpt-image-1.5 | low/med/high | low/high | fixed: 1024×1024, 1024×1536, 1536×1024, auto | validated legacy workflows during migration |
+| gpt-image-1 | low/med/high | low/high | fixed: 1024×1024, 1024×1536, 1536×1024, auto | legacy compatibility only |
+| gpt-image-1-mini | low/med/high | low/high | fixed set | cost/throughput: big batches, previews, drafts |
+
+For gpt-image-1 / 1.5 / mini: use only the **fixed size set** (not arbitrary sizes), and
+`input_fidelity=high` is available for identity/detail-preserving edits. Prefer gpt-image-2 for
+new work; reach for the older ones only for migration or cost.
+
 ## Parameters reference
 
 **quality:** `low` | `medium` | `high`

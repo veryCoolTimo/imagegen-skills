@@ -130,7 +130,20 @@ The pipeline: `idea -> detect archetype -> expand to the nine blocks -> format f
 
 ## Models
 
-The default target is **gpt-image-2**, with its guide baked in: exact `size` and `quality`, structure order, text-in-quotes rules, and IP-safety constraints. The core builder is model-agnostic, so more targets plug in as single files (universal, Midjourney, Gemini, Ideogram).
+Default target is **gpt-image-2**. The core builder is model-agnostic — each model is one adapter file under `references/models/`, so the same idea renders correctly per target (each distilled from the model's official prompting guide):
+
+| Model | Best for |
+|---|---|
+| **gpt-image-2** (default; + gpt-image-1/1.5) | all-round #1: quality, editing, text, photoreal |
+| **Nano Banana Pro** (Gemini 3 Pro Image) | best legible text, up to 4K, factual infographics (Search grounding) |
+| **Midjourney** V8.1/V7 | aesthetics, creative posters |
+| **FLUX.2** | open/local, hex + typography + editing |
+| **Recraft V4 Pro** | brand / typography / vector / logos, editable SVG |
+| **Ideogram** v4 | in-image text specialist |
+| **Reve 2.0** | prompt adherence + layout/element editing |
+| **universal** | rich natural-language prompt for any/unknown tool |
+
+Just name a model ("…for Midjourney", "in the anthropic style with nano banana pro") and the skill switches adapters.
 
 ## Style presets
 
@@ -168,9 +181,17 @@ imagegen-skills/
         ├── archetypes.md        # templates and default size/quality per archetype
         ├── fonts-palettes.md    # font library by vibe and hex palette discipline
         ├── styles.md            # built-in style menu (repertoire to pick from)
-        ├── edit-remix.md        # gpt-image-2 edit/remix workflow templates
+        ├── edit-remix.md        # edit/remix workflow templates
         ├── gold-examples.md     # curated reference prompts, grows over time
-        └── models/gpt-image-2.md
+        └── models/              # one adapter per model
+            ├── gpt-image-2.md   # + gpt-image-1/1.5 family
+            ├── gemini.md        # Nano Banana Pro (Gemini 3 Pro Image)
+            ├── midjourney.md
+            ├── flux.md
+            ├── recraft.md
+            ├── ideogram.md
+            ├── reve.md
+            └── universal.md
 ```
 
 ## Extending
