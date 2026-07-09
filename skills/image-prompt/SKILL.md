@@ -85,10 +85,15 @@ Presets are saved **styles** (never content) the user has dialed in, stored per-
 the machine. Create the directory on first save. Each user grows their own set.
 
 - **Save** — on "save this style as <name>" / "запомни этот стиль как …": distill ONLY the
-  style layer from the prompt we just nailed (or from the reference analysis) — background +
-  texture, palette (hex), fonts + roles, signature motifs, mood, finish, constraints, target
-  model. Do NOT save subject, copy, or specific zones. Write the file (format below), then
-  confirm what was captured.
+  style layer (never subject, copy, or specific zones). Capture the **distinctive signatures
+  that make the style non-generic** — palette + fonts alone flatten the output. Nail:
+  **MEDIUM/technique** (watercolor vs flat vector vs risograph vs 3D render vs photo), **how
+  fills are painted** (flat vs mottled/grainy), **LINE quality** (loose/varied vs clean/even),
+  **COMPOSITION rhythm** (sparse/airy vs dense; organic vs grid; negative space), and an
+  explicit **AVOID** list of anti-patterns that would drift toward a generic look. When
+  deriving from reference images, name the 2-3 traits that separate this style from a generic
+  version and encode them; if refs are available, sanity-check the intended output against
+  them. Write the file (format below), then confirm what was captured.
 - **Use** — on "in the <name> style" / "use preset <name>": read the preset, build the
   CONTENT from the new idea as usual, but take background/texture, palette, fonts, motifs,
   mood, and finish from the preset (overriding the archetype's style defaults). Keep the
@@ -104,14 +109,20 @@ description: <one line>
 suits: [poster, landing-hero, illustration, ...]
 model: gpt-image-2
 ---
+MEDIUM: <what it physically is + technique — watercolor illustration / flat vector / risograph / 3D render / photo>
 BACKGROUND: <bg + global texture, with hex>
-PALETTE: <4-6 hex codes + restraint notes>
+PALETTE: <hex codes + HOW fills are painted (flat? mottled watercolor? grain showing through?)>
+LINE: <stroke quality if line-based — loose/varied vs clean/even> (omit if not line-art)
 FONTS: <named fonts + roles + effects>
-MOTIFS: <signature composition / graphic devices>
+MOTIFS: <signature graphic devices>
+COMPOSITION: <density & rhythm — sparse/airy vs dense; organic vs grid; negative space>
 MOOD: <adjective cluster>
-FINISH: <post-processing; what to avoid>
+FINISH: <texture / post-processing>
+AVOID: <anti-patterns that would drift toward a generic look>
 CONSTRAINTS: <IP-safety etc.>
 ```
+Older presets may omit MEDIUM / LINE / COMPOSITION / AVOID — add them when updating a preset
+that renders too "generic".
 
 ### Sharing presets (preset codes)
 
