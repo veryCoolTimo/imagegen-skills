@@ -56,6 +56,8 @@ Just describe what you want, in any language:
 
 > I want a poster — help me with the style
 
+> put me on a movie one-sheet as an aquatic superhero (I'll attach my photo)
+
 The skill replies with the finished prompt in a fenced code block plus one assumptions line (archetype, size, quality, brand, model). Redirect with a single sentence:
 
 > make it 9:16
@@ -166,6 +168,7 @@ imagegen-skills/
         ├── archetypes.md        # templates and default size/quality per archetype
         ├── fonts-palettes.md    # font library by vibe and hex palette discipline
         ├── styles.md            # built-in style menu (repertoire to pick from)
+        ├── edit-remix.md        # gpt-image-2 edit/remix workflow templates
         ├── gold-examples.md     # curated reference prompts, grows over time
         └── models/gpt-image-2.md
 ```

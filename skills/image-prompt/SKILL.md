@@ -23,7 +23,10 @@ infer everything sensible, output the prompt, let the user redirect in one line.
    If the user names a saved style ("in the <name> style", "use preset <name>") or asks to
    save one ("save this style as <name>"), handle it via **Style presets** below. If the user
    wants help choosing a look ("help me with the style", "what styles can you do", "в каких
-   стилях можешь"), present the **Style menu** below.
+   стилях можешь"), present the **Style menu** below. If the user supplies an existing image to
+   transform, composite, restyle, localize, or place someone/something into — or wants a
+   poster/ad built around a supplied person or product — that is an EDIT: use **Edit / remix
+   mode** below.
 
 2. **Pick the archetype** using `references/archetypes.md` (poster / landing-hero /
    product-ad / ui-mockup / photoreal-scene / game-screenshot / infographic / logo /
@@ -135,6 +138,16 @@ When the user knows the deliverable but wants help with the style ("help me with
 private presets alongside. Let them pick one or combine two, then build using that style's
 spec (it fills the style layer; content comes from the idea). Offer to save the result as a
 preset. Keep the on-screen menu short — pull a style's full spec only once it's chosen.
+
+## Edit / remix mode
+
+When the user gives an existing image (or refers to one) and wants to transform / composite /
+restyle / localize it, or build a poster/ad around a supplied person or product, this is an
+**edit**, not a generate. Follow `references/edit-remix.md`: pick the matching workflow and
+build the prompt with the change-vs-preserve framing (state what changes, list the invariants,
+repeat them), reference each input image by index + role, and set params (`input_fidelity=high`,
+`background=opaque` for product extraction, quality/size to fit). Use the edit template in that
+file. Still prompt-only — the user attaches the image(s) in their tool.
 
 ## Output format
 
