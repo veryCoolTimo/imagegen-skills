@@ -171,12 +171,6 @@ Private, per-user data (style presets, your UI reference library) lives under
 - **New model:** add `references/models/<name>.md`; the workflow stays unchanged.
 - **New style:** add it to `references/styles.md`, or save a private preset and share the code.
 
-## Related projects
-
-- [youtube-summary-skill](https://github.com/veryCoolTimo/youtube-summary-skill) — turn YouTube links into a searchable knowledge base
-- [youtube-skills](https://github.com/sergebulaev/youtube-skills) — skills that help grow a YouTube channel
-- [linkedin-skills](https://github.com/sergebulaev/linkedin-skills) — LinkedIn marketing skills
-
 ## License
 
 MIT
