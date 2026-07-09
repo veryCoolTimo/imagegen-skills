@@ -21,7 +21,9 @@ infer everything sensible, output the prompt, let the user redirect in one line.
 1. **Read the idea.** Extract: subject/brand, any style hints, aspect/format, target model.
    Invent a fictional placeholder brand name if branding is implied but none given.
    If the user names a saved style ("in the <name> style", "use preset <name>") or asks to
-   save one ("save this style as <name>"), handle it via **Style presets** below.
+   save one ("save this style as <name>"), handle it via **Style presets** below. If the user
+   wants help choosing a look ("help me with the style", "what styles can you do", "в каких
+   стилях можешь"), present the **Style menu** below.
 
 2. **Pick the archetype** using `references/archetypes.md` (poster / landing-hero /
    product-ad / ui-mockup / photoreal-scene / game-screenshot / infographic / logo /
@@ -102,7 +104,10 @@ UTF-8 bytes (verified round-trip).
 - **Export** — on "export preset <name>": encode `~/.claude/image-prompt/presets/<name>.md`
   and print the code in its own copy block. Reference command (P = the preset path):
   `python3 -c "import gzip,base64;print('imgpreset:v1:'+base64.b64encode(gzip.compress(open('$P','rb').read())).decode())"`
-  Any equivalent gzip+base64 tool works; keep the `imgpreset:v1:` prefix.
+  Any equivalent gzip+base64 tool works; keep the `imgpreset:v1:` prefix. Also try to copy the
+  code straight to the system clipboard when a tool is present (`pbcopy` on macOS,
+  `wl-copy` or `xclip -selection clipboard` on Linux) and tell the user it's copied — but
+  always print the block too, so Claude Code's built-in copy works as a fallback.
 - **Import** — on "import preset `imgpreset:v1:…`": decode the payload after the prefix, gunzip
   it, read `name:` from the decoded frontmatter, and write `presets/<name>.md`. Confirm what
   landed; if a preset with that name already exists, ask before overwriting. Reference command
@@ -121,6 +126,15 @@ references", "по моей ui-базе"): read the cards, **propose the 2-3 tha
 what fits the project over any single house style. To ingest new screenshots dropped into the
 source folder: view each image, append a card (template inside the library file), and refresh
 the aggregated-patterns summary. Libraries are user-local and private — never committed.
+
+## Style menu (help me choose a look)
+
+When the user knows the deliverable but wants help with the style ("help me with the style",
+"what styles can you do", "в каких стилях можешь"), present the built-in repertoire from
+`references/styles.md`: show **names + one-line vibes, grouped**, and offer the user's own
+private presets alongside. Let them pick one or combine two, then build using that style's
+spec (it fills the style layer; content comes from the idea). Offer to save the result as a
+preset. Keep the on-screen menu short — pull a style's full spec only once it's chosen.
 
 ## Output format
 
