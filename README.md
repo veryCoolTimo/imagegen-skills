@@ -145,6 +145,22 @@ Default target is **gpt-image-2**. The core builder is model-agnostic — each m
 
 Just name a model ("…for Midjourney", "in the anthropic style with nano banana pro") and the skill switches adapters.
 
+## Optional: generate the image
+
+By default the skill only writes the prompt. If you ask it to **generate** and a provider API
+key is set, it can render the PNG for you via `scripts/generate.py` and save it into the
+project. Supported providers (key in an env var, never committed):
+
+`openai` · `openrouter` (universal — one key, many models) · `gemini` (Nano Banana Pro) ·
+`ideogram` · `recraft` · `bfl` (FLUX.2) · `reve`. Midjourney has no API, so it stays prompt-only.
+
+```bash
+python3 scripts/generate.py --provider openrouter --prompt-file prompt.txt \
+    --model google/gemini-3-pro-image --aspect 16:9 --resolution 2K --out out.png
+```
+
+Generation is opt-in and paid — the skill confirms before spending.
+
 ## Style presets
 
 Found a look you love? Save it as a private preset and reuse it on any future idea.
@@ -174,6 +190,8 @@ imagegen-skills/
 ├── README.md
 ├── assets/
 │   └── banner.prompt.txt        # the prompt used to generate this banner
+├── scripts/
+│   └── generate.py              # optional: render a prompt via a provider API (opt-in)
 └── skills/image-prompt/
     ├── SKILL.md                 # trigger, workflow, output format
     └── references/
@@ -182,6 +200,7 @@ imagegen-skills/
         ├── fonts-palettes.md    # font library by vibe and hex palette discipline
         ├── styles.md            # built-in style menu (repertoire to pick from)
         ├── edit-remix.md        # edit/remix workflow templates
+        ├── generation.md        # optional: how the generate step calls provider APIs
         ├── gold-examples.md     # curated reference prompts, grows over time
         └── models/              # one adapter per model
             ├── gpt-image-2.md   # + gpt-image-1/1.5 family

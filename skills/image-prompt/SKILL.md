@@ -164,6 +164,15 @@ repeat them), reference each input image by index + role, and set params (`input
 `background=opaque` for product extraction, quality/size to fit). Use the edit template in that
 file. Still prompt-only — the user attaches the image(s) in their tool.
 
+## Generate (optional, opt-in)
+
+The skill is prompt-only by default. If the user **explicitly asks to generate/render** the
+image AND a provider API key is in the environment, you may run the optional generate step via
+`scripts/generate.py` — see `references/generation.md`. **Confirm first** that it's a paid
+API call, then write the prompt to a temp file and run the script, save the PNG into the
+project, and view it to check. Never generate without an explicit request and a present key;
+otherwise just deliver the prompt. Midjourney has no API — prompt only.
+
 ## Output format
 
 Put the prompt in **its own fenced code block** so the user can copy it in one action.
