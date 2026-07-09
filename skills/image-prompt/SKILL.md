@@ -20,6 +20,8 @@ infer everything sensible, output the prompt, let the user redirect in one line.
 
 1. **Read the idea.** Extract: subject/brand, any style hints, aspect/format, target model.
    Invent a fictional placeholder brand name if branding is implied but none given.
+   If the user names a saved style ("in the <name> style", "use preset <name>") or asks to
+   save one ("save this style as <name>"), handle it via **Style presets** below.
 
 2. **Pick the archetype** using `references/archetypes.md` (poster / landing-hero /
    product-ad / ui-mockup / photoreal-scene / game-screenshot / infographic / logo /
@@ -55,6 +57,41 @@ correct with a single sentence ("make it 9:16", "darker palette", "brand is NOVA
   note "no dedicated adapter yet, using rich NL style" and build a model-agnostic rich
   prompt (drop the gpt-image-2 CONSTRAINTS/size wording, add flags like `--ar/--v` only for
   Midjourney).
+
+## Style presets (user-local, private)
+
+Presets are saved **styles** (never content) the user has dialed in, stored per-user at
+`~/.claude/image-prompt/presets/<name>.md` — NOT in this repo, never committed, private to
+the machine. Create the directory on first save. Each user grows their own set.
+
+- **Save** — on "save this style as <name>" / "запомни этот стиль как …": distill ONLY the
+  style layer from the prompt we just nailed (or from the reference analysis) — background +
+  texture, palette (hex), fonts + roles, signature motifs, mood, finish, constraints, target
+  model. Do NOT save subject, copy, or specific zones. Write the file (format below), then
+  confirm what was captured.
+- **Use** — on "in the <name> style" / "use preset <name>": read the preset, build the
+  CONTENT from the new idea as usual, but take background/texture, palette, fonts, motifs,
+  mood, and finish from the preset (overriding the archetype's style defaults). Keep the
+  preset's `model`. If no preset by that name exists, say so and list what's available.
+- **Manage** — "list my presets" (read the dir), "update <name>", "delete <name>".
+
+Preset file format:
+
+```md
+---
+name: <kebab-name>
+description: <one line>
+suits: [poster, landing-hero, illustration, ...]
+model: gpt-image-2
+---
+BACKGROUND: <bg + global texture, with hex>
+PALETTE: <4-6 hex codes + restraint notes>
+FONTS: <named fonts + roles + effects>
+MOTIFS: <signature composition / graphic devices>
+MOOD: <adjective cluster>
+FINISH: <post-processing; what to avoid>
+CONSTRAINTS: <IP-safety etc.>
+```
 
 ## Output format
 

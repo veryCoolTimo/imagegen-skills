@@ -128,6 +128,18 @@ The pipeline: `idea -> detect archetype -> expand to the nine blocks -> format f
 
 The default target is **gpt-image-2**, with its guide baked in: exact `size` and `quality`, structure order, text-in-quotes rules, and IP-safety constraints. The core builder is model-agnostic, so more targets plug in as single files (universal, Midjourney, Gemini, Ideogram).
 
+## Style presets
+
+Found a look you love? Save it as a private preset and reuse it on any future idea.
+
+> save this style as neon-noir
+
+A preset captures the **style layer only** (background, palette, fonts, motifs, mood, finish) — content still comes from each new idea. Presets are stored per-user at `~/.claude/image-prompt/presets/<name>.md`, private to your machine and never committed. Reuse it:
+
+> a poster for a coffee shop, in the neon-noir style
+
+Manage them with "list my presets", "update <name>", "delete <name>".
+
 ## Project structure
 
 ```
