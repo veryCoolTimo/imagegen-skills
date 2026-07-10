@@ -24,7 +24,7 @@ No prompt-engineering required.
 - **Nine archetypes** — poster, landing hero, product ad, UI mockup, photoreal scene, game
   screenshot, infographic, logo, illustration.
 - **Eight model adapters** — the same idea renders correctly per model, each distilled from the
-  model's official prompting guide.
+  model's best available prompting docs.
 - **Style menu** — say "help me with the style" and pick from a built-in repertoire.
 - **Private style presets** — save a look you love and reuse it on any idea; share it as a
   portable `imgpreset:v1:…` code.
@@ -139,6 +139,8 @@ the content.
 ```
 imagegen-skills/
 ├── README.md
+├── LICENSE                          # MIT
+├── .claude-plugin/                  # plugin.json + marketplace.json (powers the marketplace install)
 ├── assets/                          # banner + the prompt used to make it
 ├── scripts/generate.py             # optional: render a prompt via a provider API (opt-in)
 └── skills/image-prompt/
@@ -151,7 +153,7 @@ imagegen-skills/
         ├── edit-remix.md           # edit/remix workflow templates
         ├── generation.md           # how the optional generate step calls provider APIs
         ├── gold-examples.md        # curated reference prompts, grows over time
-        └── models/                 # one adapter per model (distilled from official guides)
+        └── models/                 # one adapter per model (distilled from each model's best docs)
             ├── gpt-image-2.md      # + gpt-image-1 / 1.5 family
             ├── gemini.md           # Nano Banana Pro (Gemini 3 Pro Image)
             ├── midjourney.md

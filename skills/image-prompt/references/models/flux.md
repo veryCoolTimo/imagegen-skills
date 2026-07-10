@@ -66,5 +66,7 @@ sending**. Keep JSON only as an internal or companion artifact.
 [palette: #HEX (name), #HEX (name)]. [quoted "TEXT" + font + placement].
 ```
 
+**Report in assumptions:** `model=flux.2-<pro|flex|klein|max> · <WxH or aspect>`.
+
 ## Sources
 docs.bfl.ml/guides/* and docs.bfl.ml/flux_2/*; official BFL Claude Code skill github.com/black-forest-labs/skills (`flux-best-practices`). Uncertain: exact per-model pixel bounds / whether enum vs raw width-height — defer to /api-reference.

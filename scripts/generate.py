@@ -42,7 +42,7 @@ DEFAULT_MODEL = {
     "gemini": "gemini-3-pro-image",
     "ideogram": "v3",                    # endpoint version: v3 (stable) | v4
     "recraft": "recraftv3",              # safe default; recraftv4_1 also available
-    "bfl": "flux-2-pro",                 # or flux-2-flex (best text)
+    "bfl": "flux-2-pro-preview",         # or flux-2-pro / flux-2-flex (best text); verify current slug
     "reve": "reve/create-image",
 }
 TIMEOUT = 300
@@ -115,7 +115,10 @@ def gen_gemini(a):
                       json={"contents": [{"parts": [{"text": a.prompt}]}],
                             "generationConfig": gen_cfg}, timeout=TIMEOUT)
     r.raise_for_status()
-    for p in r.json()["candidates"][0]["content"]["parts"]:
+    cands = r.json().get("candidates")
+    if not cands:
+        sys.exit(f"Gemini returned no image (blocked or empty): {r.json().get('promptFeedback', r.text[:300])}")
+    for p in cands[0].get("content", {}).get("parts", []):
         if "inlineData" in p:
             write_png(base64.b64decode(p["inlineData"]["data"]), a.out)
             return
@@ -150,13 +153,18 @@ def gen_recraft(a):
 def gen_bfl(a):
     key = get_key("bfl")
     model = a.model or DEFAULT_MODEL["bfl"]
-    if a.size and "x" in a.size:
-        w, h = (int(x) for x in a.size.lower().split("x"))
-    else:
-        w, h = ASPECT_WH.get(a.aspect or "1:1", (1024, 1024))
-    sub = requests.post(f"https://api.bfl.ai/v1/{model}", headers={"x-key": key},
-                        json={"prompt": a.prompt, "width": w, "height": h,
-                              "output_format": "png"}, timeout=60).json()
+    w, h = ASPECT_WH.get(a.aspect or "1:1", (1024, 1024))
+    if a.size:
+        parts = a.size.lower().split("x")
+        if len(parts) == 2 and all(p.strip().isdigit() for p in parts):
+            w, h = int(parts[0]), int(parts[1])
+        else:
+            sys.exit(f"Invalid --size '{a.size}', expected WxH e.g. 1024x1024")
+    sr = requests.post(f"https://api.bfl.ai/v1/{model}", headers={"x-key": key},
+                       json={"prompt": a.prompt, "width": w, "height": h,
+                             "output_format": "png"}, timeout=60)
+    sr.raise_for_status()
+    sub = sr.json()
     polling_url = sub.get("polling_url")
     if not polling_url:
         sys.exit(f"BFL submit failed: {sub}")
@@ -206,8 +214,11 @@ def main():
     ap.add_argument("--style", help="style hint (ideogram style_type / recraft style)")
     a = ap.parse_args()
     if a.prompt_file:
-        with open(a.prompt_file, encoding="utf-8") as f:
-            a.prompt = f.read().strip()
+        try:
+            with open(a.prompt_file, encoding="utf-8") as f:
+                a.prompt = f.read().strip()
+        except OSError as e:
+            sys.exit(f"Cannot read --prompt-file: {e}")
     if not a.prompt:
         sys.exit("Provide --prompt or --prompt-file")
     DISPATCH[a.provider](a)

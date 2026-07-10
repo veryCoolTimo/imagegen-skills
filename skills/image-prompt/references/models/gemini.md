@@ -1,6 +1,6 @@
 # Model adapter — Gemini / Nano Banana Pro (Gemini 3 Pro Image)
 
-Google's flagship image model (GA May 2026). Codename **Nano Banana Pro**, API name **Gemini 3
+Google's flagship image model (GA ~mid-2026; verify). Codename **Nano Banana Pro**, API name **Gemini 3
 Pro Image**. Best-in-class legible in-image **text**, up to **4K**, and **Google Search
 grounding** for factual infographics/diagrams — the top pick for text-heavy and data-accurate
 work. Output is prompt text only (report config in the assumptions line).

@@ -60,5 +60,7 @@ removal, resize, saved effects). Third-party aggregator IDs (unconfirmed as nati
 Editing: `Keep [everything to preserve] exactly as is; change only [X] to [Y].`
 Remix: `Combine these references: use [ref 1] for the character, [ref 2] for lighting/environment; render as [style]. [scene].`
 
+**Report in assumptions:** `model=reve · aspect=<…> · 4K`.
+
 ## Sources
 blog.reve.com (Reve 2.0 announcement, "The Layout Bet", editing model), help.reve.com (API — 403 to bots), app.reve.com; Artificial Analysis leaderboard; reputable reviews (Decrypt, Morphic, WaveSpeed). Uncertain: official prompt docs are thin (product/philosophy pages, not a formal guide); model IDs + 2560-char limit are from a third-party aggregator, not confirmed native.

@@ -5,6 +5,11 @@ restyle, localize, or place someone/something into it. This is an **edit** (imag
 `client.images.edit`), not a generate. Still prompt-only output — the user attaches the image(s)
 in their tool and pastes the prompt.
 
+The params here (`input_fidelity`, `background`) are **gpt-image-2's**. The change-vs-preserve
+discipline is universal, but for edits targeting another model use that model's own editing
+section for its params: Gemini/Nano Banana Pro, FLUX.2 (edit = T2I + reference images), Recraft,
+and Reve each cover editing in their adapters.
+
 ## Core discipline (from the gpt-image-2 guide)
 
 - **Change vs preserve.** State exactly what to change, then "keep everything else the same".
@@ -64,6 +69,7 @@ CONSTRAINTS: no watermark, no added logos or trademarks; render each text string
   "turn this sketch into…", "same style as this", "remove the…", "put X into Y", "localize /
   translate this", "extract the product", "make it night / snowy".
 - If the idea is a poster/ad built around a supplied person or product, that is the
-  identity-preserving hero workflow (see the "The Deep" movie one-sheet exemplar).
+  identity-preserving hero workflow (build the poster/ad around the supplied person, preserving
+  their exact face and likeness; add only wardrobe/scene).
 - Keep IP-safety: original design, no added logos/trademarks/watermark; for likenesses, only
   the person the user supplied — do not invent recognizable real people.

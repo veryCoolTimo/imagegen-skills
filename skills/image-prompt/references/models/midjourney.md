@@ -62,5 +62,7 @@ subject/character.
 ```
 Example: `A weathered fisherman mending nets at dawn on a wooden dock, fog over calm water, soft golden backlight, shot on 35mm film with shallow depth of field and subtle grain --ar 3:2 --v 7 --style raw --s 150`
 
+**Report in assumptions:** `model=midjourney · --ar <W:H> · --v 7 [· --style raw · --s <n>]`.
+
 ## Sources
 docs.midjourney.com (Parameter List, Style/Character/Omni Reference, Multi-Prompts), updates.midjourney.com/omni-reference-oref/. (Official docs 403 to bots; cross-checked with RunThePrompts / BlakeCrosley cheat sheets.) Uncertain: exact V7 `--q` set, `--iw` upper bound, hard `--ar` cap — treat as tunable.

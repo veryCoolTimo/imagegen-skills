@@ -179,7 +179,9 @@ restyle / localize it, or build a poster/ad around a supplied person or product,
 build the prompt with the change-vs-preserve framing (state what changes, list the invariants,
 repeat them), reference each input image by index + role, and set params (`input_fidelity=high`,
 `background=opaque` for product extraction, quality/size to fit). Use the edit template in that
-file. Still prompt-only — the user attaches the image(s) in their tool.
+file. Still prompt-only — the user attaches the image(s) in their tool. The `input_fidelity` /
+`background` params are gpt-image-2's; for edits targeting another model, use that model's own
+editing section (Gemini, FLUX, Recraft, Reve each support edits) for its params.
 
 ## Generate (optional, opt-in)
 
@@ -207,7 +209,8 @@ Keep the prompt itself clean and self-contained (no meta-commentary inside it).
 
 ## Quality bar (non-negotiable)
 
-- Name **real fonts** for every text role; never "a nice font".
+- Name **real fonts** for every text role; never "a nice font". Exception: Gemini, Ideogram
+  and Recraft can't consume font names — describe fonts by trait there (per those adapters).
 - Give **every color a hex code**; never a bare color word.
 - Break the canvas into **named zones with positions** — this is the #1 quality signal.
 - Include a **finish/texture cue** (grain, halftone, brushwork, pores) and a quality tag.

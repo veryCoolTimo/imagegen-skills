@@ -85,7 +85,9 @@ For **each** text element on the canvas:
 > reads "BOOM".
 > Body: 4 lines small italic serif (Tiempos Text / Garamond Italic), cream #F5EFE3.
 
-Naming a real font family is the strongest style anchor available — use it every time.
+Naming a real font family is the strongest style anchor available — use it every time, EXCEPT
+for models that can't consume font names (Gemini, Ideogram, Recraft): there, describe the font
+by trait (weight, contrast, era) instead, per the model adapter.
 
 ## Block 6 — Palette
 
@@ -113,7 +115,7 @@ A tight **adjective cluster** (3-6 words) + era/reference anchors.
 - **Finish:** the post-processing — "subtle film grain, slight CRT-warmth, sticker
   drop-shadows, vintage screen-print feel."
 - **Quality/authority tag:** "Awwwards / Behance-quality streetwear landing page, 4k
-  vertical." (Model-specific alternatives: Midjourney flags `--ar 4:3 --style raw --v 6.1`;
+  vertical." (Model-specific alternatives: Midjourney flags `--ar 4:3 --style raw --v 7`;
   engine tags "Unreal Engine 5.3, Lumen GI, Nanite, path-traced, 4K".)
 
 ---

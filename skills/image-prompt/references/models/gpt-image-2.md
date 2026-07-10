@@ -131,3 +131,10 @@ technical blocks: `SCENE:` `SUBJECT:` `ACTION:` `LIGHTING:` `CAMERA:` `HUD:` `TE
    portrait, or a poster with heavy typography; else `medium`; `low` only if the user wants
    speed/drafts.
 3. State both in the assumptions line, e.g. `size=1024x1536 · quality=high`.
+
+## Sources
+OpenAI official gpt-image-2 guide / API reference (developers.openai.com — image-generation
+guide, models/gpt-image-2, images.generate). Uncertain / verify against the live API before
+shipping: the exact size-constraint numbers (max edge, multiple-of-16, ratio ≤3:1, pixel
+bounds) and the per-variant split (gpt-image-2 vs 1.5 vs 1 vs mini for `input_fidelity` and
+fixed vs arbitrary sizes) can change — treat as tunable, confirm on your account.
